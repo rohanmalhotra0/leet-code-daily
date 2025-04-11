@@ -21,7 +21,15 @@ class Solution:
             if (apple[arr[i]].appened(apple[arr[i - 1]]) == "IX"):
                 sum += 9
             if (apple[arr[i]].appened(apple[arr[i - 1]]) == "XL"):
-                sum += 9
+                sum += 40
+            if (apple[arr[i]].appened(apple[arr[i - 1]]) == "XC"):
+                sum += 90
+            if (apple[arr[i]].appened(apple[arr[i - 1]]) == "CD"):
+                sum += 400
+            if (apple[arr[i]].appened(apple[arr[i - 1]]) == "CM"):
+                sum += 900
+            if (i == 0):
+                sum += apple[arr[i]]
             else:
                 sum += apple[arr[i]]
 
