@@ -62,3 +62,34 @@ Could you solve this problem in less than O(n) complexity?
 '''
 What worked for me was writing everything out and using print statements and the output to debug my code. First almost pure problem solved in leetcode
 '''
+
+def kthFactor(n: int, k: int) -> int:
+    factors = []
+    for i in range(1, n + 1):
+        if n % i == 0:
+            factors.append(i)
+    if k <= len(factors):
+        return factors[k - 1]
+    else:
+        return -1
+# Example usage
+print(kthFactor(12, 3))  # Output: 3
+
+print(kthFactor(7, 2))   # Output: 7
+print(kthFactor(4, 4))   # Output: -1
+# Test cases
+print(kthFactor(1, 1))   # Output: 1
+print(kthFactor(1000, 10))  # Output: 10
+print(kthFactor(1000, 20))  # Output: 20
+
+print(kthFactor(1000, 30))  # Output: 30
+
+def kthFactor(n: int, k: int) -> int:
+    factors = []
+    for i in range(1, n + 1):
+        if n % i == 0:
+            factors.append(i)
+    if k <= len(factors):
+        return factors[k - 1]
+    else:
+        return -1
