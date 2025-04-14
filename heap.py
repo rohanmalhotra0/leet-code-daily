@@ -1,42 +1,74 @@
-def heap() -> list:
-    """
-    This function creates a heap data structure. It initializes an empty list to represent the heap.
-    """
-    
-    heap = []  # Initialize an empty list to represent the heap
-    
-    return heap
-def heapImplementation():
-    """
-    This function demonstrates the implementation of a heap data structure.
-    It initializes an empty list to represent the heap and provides methods to insert elements and maintain the heap property.
-    """
-    
-    heap = []  # Initialize an empty list to represent the heap
-    
-    def insert(value):
-        """
-        Inserts a value into the heap and maintains the heap property.
-        """
-        heap.append(value)  # Add the new value to the end of the list
-        _heapify_up(len(heap) - 1)  # Restore the heap property by moving the new value up
-    
-    def _heapify_up(index):
-        """
-        Moves the value at the given index up to restore the heap property.
-        """
-        parent_index = (index - 1) // 2  # Calculate the index of the parent node
-        if index > 0 and heap[index] < heap[parent_index]:
-            heap[index], heap[parent_index] = heap[parent_index], heap[index]
-            _heapify_up(parent_index)
+class MinHeap:
+    def __init__(self):
+        self.heap = []
 
-#example usage
-    insert(10)
-    insert(5)
-    insert(20)
-    insert(15)
-    print(heap)  # Output: [5, 10, 20, 15]
+    def get_parent_index(self, index):
+        return (index - 1) // 2
     
-    return heap
-# This will print the heap after inserting the values.
- 
+    def get_left_child_index(self, index):
+        return 2 * index + 1
+
+    def get_right_child_index(self, index):
+        return 2 * index + 2
+
+    def swap(self, i, j):
+        self.heap[i], self.heap[j] = self.heap[j], self.heap[i]
+
+    def insert(self, val):
+        self.heap.append(val)
+        self._heapify_up(len(self.heap) - 1)
+
+    def _heapify_up(self, index):
+        while index > 0:
+            parent_index = self.get_parent_index(index)
+            if self.heap[index] < self.heap[parent_index]:
+                self.swap(index, parent_index)
+                index = parent_index
+            else:
+                break
+
+    def extract_min(self):
+        if not self.heap:
+            return None
+        if len(self.heap) == 1:
+            return self.heap.pop()
+
+        min_val = self.heap[0]
+        self.heap[0] = self.heap.pop()
+        self._heapify_down(0)
+        return min_val
+
+    def _heapify_down(self, index):
+        while self.get_left_child_index(index) < len(self.heap):
+            smallest = index
+            left = self.get_left_child_index(index)
+            right = self.get_right_child_index(index)
+
+            if left < len(self.heap) and self.heap[left] < self.heap[smallest]:
+                smallest = left
+            if right < len(self.heap) and self.heap[right] < self.heap[smallest]:
+                smallest = right
+
+            if smallest != index:
+                self.swap(index, smallest)
+                index = smallest
+            else:
+                break
+
+    def peek(self):
+        return self.heap[0] if self.heap else None
+
+    def __str__(self):
+        return str(self.heap)
+
+heap = MinHeap()
+heap.insert(10)
+heap.insert(5)
+heap.insert(14)
+heap.insert(1)
+
+print("Heap:", heap)           # [1, 5, 14, 10]
+print("Min:", heap.peek())    # 1
+
+print("Extracted:", heap.extract_min())  # 1
+print("Heap after extraction:", heap)    # [5, 10, 14]
