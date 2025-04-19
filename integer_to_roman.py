@@ -29,3 +29,18 @@ if __name__ == "__main__":
     result = solution.intToRoman(num)
     print(result)  # Output: "MCMXCIV"
     
+# The code defines a class `Solution` with a method `intToRoman` that converts an integer to its Roman numeral representation.
+# The method uses two lists: `val` for integer values and `syms` for corresponding Roman symbols.
+# It iterates through the `val` list, subtracting the integer value from `num` and appending the corresponding Roman symbol to `roman_num`.
+# The process continues until `num` is reduced to zero.
+# The example usage demonstrates how to create an instance of the `Solution` class and call the `intToRoman` method with an integer input.
+# The output is printed to the console.
+# The code is efficient and handles the conversion in a straightforward manner.
+def test_int_to_roman():
+    solution = Solution()
+    assert solution.intToRoman(1) == "I"
+    assert solution.intToRoman(4) == "IV"
+    assert solution.intToRoman(9) == "IX"
+    assert solution.intToRoman(58) == "LVIII"
+    assert solution.intToRoman(1994) == "MCMXCIV"
+    print("All tests passed.")
