@@ -13,3 +13,22 @@ def binary_search(arr, target):
         else:
             right = mid - 1
     return -1
+# sliding window example
+class Solution:
+    def lengthOfLongestSubstring(self, s: str) -> int:
+     stored = set()
+        left = 0
+        maxLength = 0
+
+        for right, ch in enumerate(s):
+            # If ch is already in the window, shrink from the left
+            while ch in stored:
+                stored.remove(s[left])
+                left += 1
+
+            # Add the new character and update the maximum length
+            stored.add(ch)
+            currLength = right - left + 1
+            maxLength = max(maxLength, currLength)
+
+        return maxLength
