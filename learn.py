@@ -32,3 +32,28 @@ class Solution:
             maxLength = max(maxLength, currLength)
 
         return maxLength
+# Example usage
+s = "abcabcbb"
+solution = Solution()
+result = solution.lengthOfLongestSubstring(s)
+print(f"The length of the longest substring without repeating characters in '{s}' is: {result}")
+# Example usage of binary search
+arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+target = 5
+result = binary_search(arr, target)
+if result != -1:
+    print(f"Element {target} found at index {result}.")
+else:
+    print(f"Element {target} not found in the array.")
+# Example usage of map1
+for key, value in map1.items():
+    print(f"{key}: {value}")
+# Example usage of binary search
+arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+target = 5
+result = binary_search(arr, target)
+if result != -1:
+    print(f"Element {target} found at index {result}.")
+else:
+    print(f"Element {target} not found in the array.")
+    
