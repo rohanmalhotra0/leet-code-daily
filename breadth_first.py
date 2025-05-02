@@ -34,3 +34,17 @@ if __name__ == "__main__":
 # Output: A B C D E F
 # This will print the nodes in the order they are visited.
 # This is a simple implementation of the breadth-first search (BFS) algorithm.
+
+
+#dfs
+def depth_first_search(graph, start, visited=None):
+    if visited is None:
+        visited = set()  # Initialize the visited set if not provided
+
+    visited.add(start)  # Mark the current node as visited
+    print(start, end=" ")  # Print the current node
+
+    # Recur for all the vertices adjacent to this vertex
+    for neighbor in graph[start]:
+        if neighbor not in visited:
+            depth_first_search(graph, neighbor, visited)
