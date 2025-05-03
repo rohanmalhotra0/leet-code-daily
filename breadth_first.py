@@ -48,3 +48,16 @@ def depth_first_search(graph, start, visited=None):
     for neighbor in graph[start]:
         if neighbor not in visited:
             depth_first_search(graph, neighbor, visited)
+            
+class Solution:
+    def threeSum(self, nums: List[int]) -> List[List[int]]:
+       trips = [[]]
+       currTrips = []
+       L , R = 0 , 2
+       while R < len(nums) - 1:
+            if R - L + 1 > 3:
+                currTrips.remove(nums[L])
+                L += 1
+            currTrips += nums[R]
+            R -= 1         
+       return trips 
