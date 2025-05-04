@@ -61,3 +61,38 @@ class Solution:
             currTrips += nums[R]
             R -= 1         
        return trips 
+# Example usage:
+if __name__ == "__main__":
+    # Graph represented as an adjacency list
+    graph = {
+        'A': ['B', 'C'],
+        'B': ['A', 'D', 'E'],
+        'C': ['A', 'F'],
+        'D': ['B'],
+        'E': ['B', 'F'],
+        'F': ['C', 'E']
+    }
+
+    print("\nDepth First Search starting from vertex A:")
+    depth_first_search(graph, 'A')
+# Output: A B D E C F
+# This will print the nodes in the order they are visited.
+# This is a simple implementation of the depth-first search (DFS) algorithm.
+# The above code implements both breadth-first search (BFS) and depth-first search (DFS) algorithms.
+
+def main():
+    # Example graph represented as an adjacency list
+    graph = {
+        'A': ['B', 'C'],
+        'B': ['A', 'D', 'E'],
+        'C': ['A', 'F'],
+        'D': ['B'],
+        'E': ['B', 'F'],
+        'F': ['C', 'E']
+    }
+
+    print("Breadth First Search starting from vertex A:")
+    breadth_first_search(graph, 'A')
+    
+    print("\nDepth First Search starting from vertex A:")
+    depth_first_search(graph, 'A')
