@@ -34,3 +34,10 @@ class Solution:
                 sum += apple[arr[i]]
 
         return sum
+
+def main():
+    s = "MCMXCIV"
+    solution = Solution()
+    result = solution.romanToInt(s)
+    print(f"The integer value of the Roman numeral {s} is: {result}")
+    

@@ -54,4 +54,16 @@ class Solution:
         return bool
         '''
         
-        
+        def isPalindrome(self, x: int) -> bool:
+            return str(x) == str(x)[::-1]
+        # Example usage:
+        if __name__ == "__main__":
+            x = 121
+            solution = Solution()
+            result = solution.isPalindrome(x)
+            print(result)  # Output: True
+# This will print True because 121 is a palindrome.
+# This will print True because 121 is a palindrome.
+# This will print True because 121 is a palindrome.
+# This will print True because 121 is a palindrome.
+# This will print True because 121 is a palindrome.
