@@ -8,3 +8,12 @@ class Solution:
             if i * i > x:
                 return i - 1
         return 0 
+    
+    def mySqrt2(self, x: int) -> int:
+        while x > 0:
+            if x * x > x:
+                return x - 1
+            else:
+                return x
+        return 0
+    
