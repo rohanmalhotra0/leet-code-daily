@@ -16,3 +16,16 @@ class Solution:
          # return true if it does false if not
          return len(map1.keys()) != len(nums) 
         '''
+        
+        def containsDuplicate(self, nums: List[int]) -> bool:
+            # Create a set to store unique elements
+            seen = set()
+            for num in nums:
+                # If the number is already in the set, return True
+                if num in seen:
+                    return True
+                # Otherwise, add it to the set
+                seen.add(num)
+            # If no duplicates were found, return False
+            return False
+        
